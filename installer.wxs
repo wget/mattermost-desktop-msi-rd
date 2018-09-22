@@ -42,7 +42,11 @@
     Codepage='1252'
     Version='4.1.2'
     >
-    
+
+    <!--
+    perMachine installs the app system wide (ALLUSERS is set to 1)
+    src.: https://www.joyofsetup.com/2008/04/01/new-wix-feature-setting-package-installation-scope/
+    -->
     <Package
       Id='*'
       Keywords='Installer'
@@ -53,6 +57,7 @@
       Compressed='yes'
       SummaryCodepage='1252'
       Platform="$(var.Platform)"
+      InstallScope='perMachine'
     />
       
     <MediaTemplate EmbedCab="yes" CompressionLevel="high"/>
@@ -70,22 +75,26 @@
     
     <!--<MajorUpgrade
       DowngradeErrorMessage="A later version of [ProductName] is already installed. Setup will now exit." />-->
-      
 
-    
-      
     <Directory Id='TARGETDIR' Name='SourceDir'>
     
       <Directory Id='$(var.ProgramFilesVersion)' Name='PFiles'>
         <Directory Id='MattermostFolder' Name='Mattermost'>
           <Directory Id='INSTALLDIR' Name='Desktop'>
             <Component Id='MainExecutable' Guid='2988074A-AD67-44E6-A7FC-5FC0C1570B96' Win64="$(var.Win64)">
-              <File Id='MattermostDesktopEXE' Name='Mattermost.exe' DiskId='1' Source='Mattermost.exe' KeyPath='yes'>
-                <Shortcut Id="MattermostDesktopStartMenuShortcut" Directory="ProgramMenuDir" Name="Mattermost Desktop"
-                  WorkingDirectory='INSTALLDIR' Icon="Mattermost.ico" IconIndex="0" Advertise="yes" />
-                <Shortcut Id="MattermostDesktopDesktopShortcut" Directory="DesktopFolder" Name="Mattermost Desktop"
-                  WorkingDirectory='INSTALLDIR' Icon="Mattermost.ico" IconIndex="0" Advertise="yes" />
-              </File>
+              <File Id='MattermostDesktopEXE' Name='Mattermost.exe' DiskId='1' Source='Mattermost.exe' KeyPath='yes' />
+            </Component>
+            <Component Id='MainExecutableShortcutDesktop' Guid='9C71385D-C892-48BA-A35D-D89A661D2952' Win64="$(var.Win64)">
+              <Condition><![CDATA[ADDDESKTOPSHORTCUT = "true"]]></Condition>
+              <RegistryValue Id="RegShortcutDesktop" Root="HKCU" Key="SOFTWARE\Mattermost\Desktop\settings" Name="MattermostDesktopShortcutDesktop" Value="1" Type="integer" KeyPath="yes" />
+              <Shortcut Id="MattermostDesktopShortcutDesktop" Directory="DesktopFolder" Name="Mattermost Desktop"
+                WorkingDirectory='INSTALLDIR' Icon="Mattermost.ico" IconIndex="0" Advertise="no" Target="[INSTALLDIR]Mattermost.exe" />
+            </Component>
+            <Component Id='MainExecutableShortcutStartMenu' Guid='DF2028FF-7E03-407B-A46A-726E1B67DF83' Win64="$(var.Win64)">
+              <Condition><![CDATA[ADDSTARTMENUSHORTCUT = "true"]]></Condition>
+              <RegistryValue Id="RegShortcutStartMenu" Root="HKCU" Key="SOFTWARE\Mattermost\Desktop\settings" Name="MattermostDesktopShortcutStartMenu" Value="1" Type="integer" KeyPath="yes" />
+              <Shortcut Id="MattermostDesktopShortcutStartMenu" Directory="ProgramMenuDir" Name="Mattermost Desktop"
+                WorkingDirectory='INSTALLDIR' Icon="Mattermost.ico" IconIndex="0" Advertise="no" Target="[INSTALLDIR]Mattermost.exe" />
             </Component>
           </Directory>
         </Directory>
@@ -107,6 +116,8 @@
     
     <Feature Id='Complete' Level='1' ConfigurableDirectory='INSTALLDIR'>
       <ComponentRef Id='MainExecutable' />
+      <ComponentRef Id='MainExecutableShortcutDesktop' />
+      <ComponentRef Id='MainExecutableShortcutStartMenu' />
       <ComponentRef Id='ProgramMenuDir' />
     </Feature>   
     
@@ -119,6 +130,7 @@
     <Property Id='ARPURLINFOABOUT'>https://mattermost.com/</Property>
 
     <UI>
+      <Publish Dialog="SuccessDlg" Control="Finish" Order="1" Event="DoAction" Value="LaunchApp">LAUNCHAPPAFTERINSTALL</Publish>
       <Property Id="ErrorDialog"><![CDATA[ErrorDlg]]></Property>
       <Property Id="DefaultUIFont"><![CDATA[DlgFont8]]></Property>
       <Dialog Id="AdminWelcomeDlg" Width="370" Height="270" Title="[ProductName] [Setup]" NoMinimize="yes">
@@ -138,7 +150,7 @@
           <Text>{\VerdanaBold13}Welcome to the [ProductName] [Wizard]</Text>
         </Control>
       </Dialog>
-      <Dialog Id="ExitDialog" Width="370" Height="270" Title="[ProductName] [Setup]" NoMinimize="yes">
+      <Dialog Id="SuccessDlg" Width="370" Height="270" Title="[ProductName] [Setup]" NoMinimize="yes">
         <Control Id="Finish" Type="PushButton" X="236" Y="243" Width="56" Height="17" Default="yes" Cancel="yes" Text="[ButtonText_Finish]">
           <Publish Event="EndDialog" Value="Return"><![CDATA[1]]></Publish>
         </Control>
@@ -366,13 +378,13 @@
           <Condition Action="hide"><![CDATA[Installed]]></Condition>
         </Control>
  
-        <Control Type="CheckBox" Id="AddDesktopShortcut" X="10" Y="155" Width="350" Height="20" Property="AddDesktopShortcut" CheckBoxValue="true">
+        <Control Type="CheckBox" Id="AddDesktopShortcut" X="10" Y="155" Width="350" Height="20" Property="ADDDESKTOPSHORTCUT" CheckBoxValue="true">
           <Text>!(loc.AdvancedDlgAddDesktopShortcut)</Text>
         </Control>
-        <Control Type="CheckBox" Id="AddStartMenuShortcut" X="10" Y="170" Width="350" Height="20" Property="AddStartMenuShortcut" CheckBoxValue="true">
+        <Control Type="CheckBox" Id="AddStartMenuShortcut" X="10" Y="170" Width="350" Height="20" Property="ADDSTARTMENUSHORTCUT" CheckBoxValue="true">
           <Text>!(loc.AdvancedDlgAddStartMenuShortcut)</Text>
         </Control>
-        <Control Type="CheckBox" Id="LaunchAppAfterInstall" X="10" Y="195" Width="350" Height="20" Property="LaunchAppAfterInstall" CheckBoxValue="true">
+        <Control Type="CheckBox" Id="LaunchAppAfterInstall" X="10" Y="195" Width="350" Height="20" Property="LAUNCHAPPAFTERINSTALL" CheckBoxValue="true">
           <Text>!(loc.AdvancedDlgLaunchAppAfterInstall)</Text>
         </Control>
 
@@ -1021,7 +1033,7 @@
       <AdminUISequence>
         <Show Dialog="FatalError" OnExit="error" />
         <Show Dialog="UserExitDlg" OnExit="cancel" />
-        <Show Dialog="ExitDialog" OnExit="success" />
+        <Show Dialog="SuccessDlg" OnExit="success" />
         <Show Dialog="PrepareDlg" Before="CostInitialize"><![CDATA[]]></Show>
         <Show Dialog="AdminWelcomeDlg" After="CostFinalize" />
         <Show Dialog="ProgressDlg" After="AdminWelcomeDlg" />
@@ -1029,7 +1041,7 @@
       <InstallUISequence>
         <Show Dialog="FatalError" OnExit="error" />
         <Show Dialog="UserExitDlg" OnExit="cancel" />
-        <Show Dialog="ExitDialog" OnExit="success" />
+        <Show Dialog="SuccessDlg" OnExit="success" />
         <Show Dialog="PrepareDlg" After="LaunchConditions" />
         <Show Dialog="WelcomeDlg" After="MigrateFeatureStates"><![CDATA[NOT Installed]]></Show>
         <Show Dialog="ResumeDlg" After="WelcomeDlg"><![CDATA[Installed AND (RESUME OR Preselected)]]></Show>
@@ -1076,6 +1088,9 @@
     <Property Id="ComponentDownload"><![CDATA[ftp://anonymous@microsoft.com/components/]]></Property>
     <Property Id="BannerBitmap"><![CDATA[BannerBitmap]]></Property>
     <Property Id="DialogBitmap"><![CDATA[DialogBitmap]]></Property>
+    <Property Id="ADDDESKTOPSHORTCUT">true</Property>
+    <Property Id="ADDSTARTMENUSHORTCUT">true</Property>
+    <Property Id="LAUNCHAPPAFTERINSTALL">true</Property>
     <AdminExecuteSequence />
     <InstallExecuteSequence>
       <Custom Action='LaunchApp' After='InstallFinalize'>NOT Installed</Custom>
