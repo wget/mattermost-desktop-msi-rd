@@ -76,6 +76,11 @@
     <!--<MajorUpgrade
       DowngradeErrorMessage="A later version of [ProductName] is already installed. Setup will now exit." />-->
 
+    <!-- Retrieve previous installation path -->
+    <Property Id="INSTALLDIR">
+      <RegistrySearch Id="DetermineInstallLocation" Type="raw" Root="HKLM" Key="Software\Mattermost\Desktop" Name="InstallLocation" />
+    </Property>
+
     <Directory Id='TARGETDIR' Name='SourceDir'>
     
       <Directory Id='$(var.ProgramFilesVersion)' Name='PFiles'>
@@ -112,6 +117,18 @@
 
       <Directory Id="DesktopFolder" Name="Desktop" />
       
+    <!--
+    We are creating a registry out of tree (i.e. that won't be removed at
+    desinstallation) because the purpose here is to remember the install
+    location across updates (important when installing a newer version,
+    because that is uninstall followed by install).
+    src.: http://robmensching.com/blog/posts/2010/5/2/the-wix-toolsets-remember-property-pattern/
+    -->
+      <Component Id="RegInstallLocation" Guid="BF67264A-28BB-44FF-A646-F118D814651E">
+        <RegistryKey Root="HKLM" Key="Software\Mattermost\Desktop">
+          <RegistryValue Name="InstallLocation" Value="[INSTALLDIR]" Type="string" KeyPath="yes" />
+        </RegistryKey>
+      </Component>
     </Directory>
     
     <Feature Id='Complete' Level='1' ConfigurableDirectory='INSTALLDIR'>
@@ -119,6 +136,7 @@
       <ComponentRef Id='MainExecutableShortcutDesktop' />
       <ComponentRef Id='MainExecutableShortcutStartMenu' />
       <ComponentRef Id='ProgramMenuDir' />
+      <ComponentRef Id='RegInstallLocation' />
     </Feature>   
     
     <CustomAction Id='LaunchApp' FileKey='MattermostDesktopEXE' ExeCommand='' Return='asyncNoWait' />
