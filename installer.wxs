@@ -1,7 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <Wix xmlns='http://schemas.microsoft.com/wix/2006/wi'>
 
-
   <!--
   Determine wich bitness version of the msi to build depending on the
   variables passed as argument to candle.
@@ -139,6 +138,10 @@
       <ComponentRef Id='RegInstallLocation' />
     </Feature>   
     
+    <InstallExecuteSequence>
+      <Custom Action='LaunchApp' After='InstallFinalize'>Installed</Custom>
+      <RemoveExistingProducts After="InstallFinalize" />
+    </InstallExecuteSequence>
     <CustomAction Id='LaunchApp' FileKey='MattermostDesktopEXE' ExeCommand='' Return='asyncNoWait' />
 
     <Icon Id="Mattermost.ico" SourceFile="Mattermost.ico" />
@@ -146,6 +149,10 @@
     <Property Id='ARPCONTACT'>https://pre-release.mattermost.com</Property>
     <Property Id='ARPHELPLINK'>https://docs.mattermost.com/</Property>
     <Property Id='ARPURLINFOABOUT'>https://mattermost.com/</Property>
+    <Property Id="ComponentDownload"><![CDATA[https://releases.mattermost.com/desktop/4.1.2/mattermost-setup-4.1.2-win64.msi]]></Property>
+    <Property Id="ADDDESKTOPSHORTCUT">true</Property>
+    <Property Id="ADDSTARTMENUSHORTCUT">true</Property>
+    <Property Id="LAUNCHAPPAFTERINSTALL">true</Property>
 
     <UI>
       <Publish Dialog="SuccessDlg" Control="Finish" Order="1" Event="DoAction" Value="LaunchApp">LAUNCHAPPAFTERINSTALL</Publish>
@@ -154,7 +161,6 @@
       <Dialog Id="AdminWelcomeDlg" Width="370" Height="270" Title="[ProductName] [Setup]" NoMinimize="yes">
         <Control Id="Next" Type="PushButton" X="236" Y="243" Width="56" Height="17" Default="yes" Text="[ButtonText_Next]">
           <Publish Property="InstallMode" Value="Server Image"><![CDATA[1]]></Publish>
-          <Publish Event="NewDialog" Value="AdminRegistrationDlg"><![CDATA[1]]></Publish>
         </Control>
         <Control Id="Cancel" Type="PushButton" X="304" Y="243" Width="56" Height="17" Cancel="yes" Text="[ButtonText_Cancel]">
           <Publish Event="SpawnDialog" Value="CancelDlg"><![CDATA[1]]></Publish>
@@ -281,59 +287,6 @@
         </Control>
         <Control Id="Title" Type="Text" X="15" Y="6" Width="200" Height="15" Transparent="yes" NoPrefix="yes">
           <Text>[DlgTitleFont]Change current destination folder</Text>
-        </Control>
-      </Dialog>
-      <Dialog Id="AdminInstallPointDlg" Width="370" Height="270" Title="[ProductName] [Setup]" NoMinimize="yes">
-        <Control Id="Text" Type="Text" X="25" Y="80" Width="320" Height="10" TabSkip="no">
-          <Text>&amp;Enter a new network location or click Browse to browse to one.</Text>
-        </Control>
-        <Control Id="PathEdit" Type="PathEdit" X="25" Y="93" Width="320" Height="18" Property="TARGETDIR" />
-        <Control Id="Browse" Type="PushButton" X="289" Y="119" Width="56" Height="17" Text="[ButtonText_Browse]">
-          <Publish Event="SpawnDialog" Value="AdminBrowseDlg"><![CDATA[1]]></Publish>
-        </Control>
-        <Control Id="Back" Type="PushButton" X="180" Y="243" Width="56" Height="17" Text="[ButtonText_Back]">
-          <Publish Event="NewDialog" Value="AdminRegistrationDlg"><![CDATA[1]]></Publish>
-        </Control>
-        <Control Id="Next" Type="PushButton" X="236" Y="243" Width="56" Height="17" Default="yes" Text="[ButtonText_Next]">
-          <Publish Event="SetTargetPath" Value="TARGETDIR"><![CDATA[1]]></Publish>
-          <Publish Event="NewDialog" Value="VerifyReadyDlg"><![CDATA[1]]></Publish>
-        </Control>
-        <Control Id="Cancel" Type="PushButton" X="304" Y="243" Width="56" Height="17" Cancel="yes" Text="[ButtonText_Cancel]">
-          <Publish Event="SpawnDialog" Value="CancelDlg"><![CDATA[1]]></Publish>
-        </Control>
-        <Control Id="BannerBitmap" Type="Bitmap" X="0" Y="0" Width="370" Height="44" TabSkip="no" Text="[BannerBitmap]" />
-        <Control Id="Description" Type="Text" X="25" Y="20" Width="280" Height="20" Transparent="yes" NoPrefix="yes">
-          <Text>Please specify a network location for the server image of [ProductName] product</Text>
-        </Control>
-        <Control Id="Title" Type="Text" X="15" Y="6" Width="200" Height="15" Transparent="yes" NoPrefix="yes">
-          <Text>[DlgTitleFont]Network Location</Text>
-        </Control>
-      </Dialog>
-      <Dialog Id="AdminRegistrationDlg" Width="370" Height="270" Title="[ProductName] [Setup]" NoMinimize="yes">
-        <Control Id="OrganizationLabel" Type="Text" X="45" Y="71" Width="285" Height="30" TabSkip="no">
-          <Text>&amp;Please enter the name of your organization in the box below.  This will be used as default company name for subsequent installations of [ProductName]:</Text>
-        </Control>
-        <Control Id="OrganizationEdit" Type="Edit" X="45" Y="105" Width="220" Height="18" Property="COMPANYNAME" Text="{80}" />
-        <Control Id="CDKeyLabel" Type="Text" X="45" Y="130" Width="50" Height="10" TabSkip="no">
-          <Text>CD &amp;Key:</Text>
-        </Control>
-        <Control Id="CDKeyEdit" Type="MaskedEdit" X="45" Y="143" Width="250" Height="16" Property="PIDKEY" Text="[PIDTemplate]" />
-        <Control Id="Back" Type="PushButton" X="180" Y="243" Width="56" Height="17" Image="yes" Text="[ButtonText_Back]">
-          <Publish Event="NewDialog" Value="AdminWelcomeDlg"><![CDATA[1]]></Publish>
-        </Control>
-        <Control Id="Next" Type="PushButton" X="236" Y="243" Width="56" Height="17" Default="yes" Text="[ButtonText_Next]">
-          <Publish Event="ValidateProductID" Value="0"><![CDATA[0]]></Publish>
-          <Publish Event="NewDialog" Value="AdminInstallPointDlg"><![CDATA[ProductID]]></Publish>
-        </Control>
-        <Control Id="Cancel" Type="PushButton" X="304" Y="243" Width="56" Height="17" Cancel="yes" Text="[ButtonText_Cancel]">
-          <Publish Event="SpawnDialog" Value="CancelDlg"><![CDATA[1]]></Publish>
-        </Control>
-        <Control Id="BannerBitmap" Type="Bitmap" X="0" Y="0" Width="370" Height="44" TabSkip="no" Text="[BannerBitmap]" />
-        <Control Id="Description" Type="Text" X="25" Y="23" Width="280" Height="15" Transparent="yes" NoPrefix="yes">
-          <Text>Please enter your company information</Text>
-        </Control>
-        <Control Id="Title" Type="Text" X="15" Y="6" Width="200" Height="15" Transparent="yes" NoPrefix="yes">
-          <Text>[DlgTitleFont]Company Information</Text>
         </Control>
       </Dialog>
       <Dialog Id="BrowseDlg" Width="370" Height="270" Title="[ProductName] [Setup]" NoMinimize="yes">
@@ -515,7 +468,7 @@
         <Control Id="ChangeLabel" Type="Text" X="105" Y="65" Width="100" Height="10" TabSkip="no">
           <Text>[DlgTitleFont]&amp;Modify</Text>
         </Control>
-        <Control Id="ChangeButton" Type="PushButton" X="50" Y="65" Width="38" Height="38" ToolTip="Modify Installation" Default="yes" Icon="yes" FixedSize="yes" IconSize="32" Text="[CustomSetupIcon]">
+        <Control Id="ChangeButton" Type="PushButton" X="50" Y="65" Width="38" Height="38" ToolTip="Modify Installation" Default="yes" Icon="yes" FixedSize="yes" IconSize="32" Text="[ModifyIcon]">
           <Publish Property="InstallMode" Value="Change"><![CDATA[1]]></Publish>
           <Publish Property="Progress1" Value="Changing"><![CDATA[1]]></Publish>
           <Publish Property="Progress2" Value="changes"><![CDATA[1]]></Publish>
@@ -657,7 +610,6 @@
         </Control>
         <Control Id="BannerBitmap" Type="Bitmap" X="0" Y="0" Width="370" Height="44" TabSkip="no" Text="[BannerBitmap]" />
         <Control Id="Back" Type="PushButton" X="180" Y="243" Width="56" Height="17" Text="[ButtonText_Back]">
-          <Publish Event="NewDialog" Value="AdminInstallPointDlg"><![CDATA[InstallMode = "Server Image"]]></Publish>
           <Publish Event="NewDialog" Value="AdvancedDlg"><![CDATA[InstallMode = "Custom" OR InstallMode = "Change"]]></Publish>
           <Publish Event="NewDialog" Value="MaintenanceTypeDlg"><![CDATA[InstallMode = "Repair"]]></Publish>
         </Control>
@@ -731,7 +683,7 @@
         <Control Id="Text" Type="Text" X="48" Y="15" Width="194" Height="30">
           <Text>Please wait while the installer finishes determining your disk space requirements.</Text>
         </Control>
-        <Control Id="Icon" Type="Icon" X="15" Y="15" Width="24" Height="24" ToolTip="Exclamation icon" FixedSize="yes" IconSize="32" Text="[ExclamationIcon]" />
+        <Control Id="Icon" Type="Icon" X="15" Y="15" Width="24" Height="24" ToolTip="Exclamation icon" FixedSize="yes" IconSize="32" Text="[WarningIcon]" />
       </Dialog>
       <Dialog Id="WelcomeDlg" Width="370" Height="270" Title="[ProductName] [Setup]" NoMinimize="yes">
           <Control Id="BackgroundBitmap" Type="Bitmap" X="0" Y="0" Width="370" Height="140" TabSkip="no" Text="[DialogBitmap]" />
@@ -1072,16 +1024,16 @@
     <Property Id="ButtonText_Next"><![CDATA[&Next >]]></Property>
     <Property Id="Setup"><![CDATA[Setup]]></Property>
     <Property Id="ButtonText_Browse"><![CDATA[Br&owse]]></Property>
-    <Property Id="CustomSetupIcon"><![CDATA[custicon]]></Property>
-    <Property Id="RepairIcon"><![CDATA[repairic]]></Property>
-    <Property Id="ExclamationIcon"><![CDATA[exclamic]]></Property>
+    <Property Id="ModifyIcon"><![CDATA[ModifyIcon]]></Property>
+    <Property Id="RepairIcon"><![CDATA[RepairIcon]]></Property>
+    <Property Id="WarningIcon"><![CDATA[WarningIcon]]></Property>
     <Property Id="ButtonText_Repair"><![CDATA[&Repair]]></Property>
     <Property Id="ButtonText_Back"><![CDATA[< &Back]]></Property>
     <Property Id="InstallMode"><![CDATA[Typical]]></Property>
     <Property Id="Progress2"><![CDATA[installs]]></Property>
     <Property Id="Progress1"><![CDATA[Installing]]></Property>
     <Property Id="Wizard"><![CDATA[Setup Wizard]]></Property>
-    <Property Id="RemoveIcon"><![CDATA[removico]]></Property>
+    <Property Id="RemoveIcon"><![CDATA[RemoveIcon]]></Property>
     <Property Id="ButtonText_Yes"><![CDATA[&Yes]]></Property>
     <Property Id="ButtonText_Ignore"><![CDATA[&Ignore]]></Property>
     <Property Id="ButtonText_Reset"><![CDATA[&Reset]]></Property>
@@ -1090,39 +1042,34 @@
     <Property Id="ButtonText_Return"><![CDATA[&Return]]></Property>
     <Property Id="ButtonText_OK"><![CDATA[OK]]></Property>
     <Property Id="ButtonText_License"><![CDATA[&License]]></Property>
-    <Property Id="CompleteSetupIcon"><![CDATA[completi]]></Property>
     <Property Id="ButtonText_Resume"><![CDATA[&Resume]]></Property>
-    <Property Id="InstallerIcon"><![CDATA[insticon]]></Property>
     <Property Id="ButtonText_Finish"><![CDATA[&Finish]]></Property>
-    <Property Id="PROMPTROLLBACKCOST"><![CDATA[P]]></Property>
-    <Property Id="PIDTemplate"><![CDATA[12345<###-%%%%%%%>@@@@@]]></Property>
     <Property Id="DlgTitleFont"><![CDATA[{&DlgFontBold8}]]></Property>
     <Property Id="ButtonText_Cancel"><![CDATA[Cancel]]></Property>
-    <Property Id="INSTALLLEVEL"><![CDATA[3]]></Property>
     <Property Id="QuestionIcon"><![CDATA[QuestionIcon]]></Property>
     <Property Id="ButtonText_Retry"><![CDATA[&Retry]]></Property>
     <Property Id="IAgree"><![CDATA[No]]></Property>
-    <Property Id="ComponentDownload"><![CDATA[ftp://anonymous@microsoft.com/components/]]></Property>
+
     <Property Id="BannerBitmap"><![CDATA[BannerBitmap]]></Property>
     <Property Id="DialogBitmap"><![CDATA[DialogBitmap]]></Property>
-    <Property Id="ADDDESKTOPSHORTCUT">true</Property>
-    <Property Id="ADDSTARTMENUSHORTCUT">true</Property>
-    <Property Id="LAUNCHAPPAFTERINSTALL">true</Property>
-    <AdminExecuteSequence />
-    <InstallExecuteSequence>
-      <Custom Action='LaunchApp' After='InstallFinalize'>NOT Installed</Custom>
-      <RemoveExistingProducts After="InstallFinalize" />
-    </InstallExecuteSequence>
-    <Binary Id="BannerBitmap" SourceFile="ui/img/mattermost-desktop-small.png" />
-    <Binary Id="completi" SourceFile="ui\img\completi.ibd" />
-    <Binary Id="custicon" SourceFile="ui\img\custicon.ibd" />
+
+
+    <!-- Mattermost blue banners -->
     <Binary Id="DialogBitmap" SourceFile="ui/img/mattermost-desktop.png" />
-    <Binary Id="exclamic" SourceFile="ui\img\exclamic.ibd" />
+    <Binary Id="BannerBitmap" SourceFile="ui/img/mattermost-desktop-small.png" />
+
+    <!-- Error and warnings -->
+    <Binary Id="WarningIcon" SourceFile="ui/img/warning.ico" />
     <Binary Id="QuestionIcon" SourceFile="ui/img/question.ico" />
-    <Binary Id="insticon" SourceFile="ui\img\insticon.ibd" />
-    <Binary Id="New" SourceFile="ui/img/create_folder.ico" />
-    <Binary Id="removico" SourceFile="ui\img\removico.ibd" />
-    <Binary Id="repairic" SourceFile="ui\img\repairic.ibd" />
+
+    <!-- In BrowseDlg -->
     <Binary Id="Up" SourceFile="ui/img/up.ico" />
+    <Binary Id="New" SourceFile="ui/img/create_folder.ico" />
+
+    <!-- In administrative install GUI -->
+    <Binary Id="ModifyIcon" SourceFile="ui/img/modify.ico" />
+    <Binary Id="RepairIcon" SourceFile="ui/img/repair.ico" />
+    <Binary Id="RemoveIcon" SourceFile="ui/img/remove.ico" />
+
   </Product>
 </Wix>
