@@ -1,5 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
 <Wix xmlns='http://schemas.microsoft.com/wix/2006/wi'>
+  <!--
+  Copyright (c) 2018-present William Gathoye
+  See LICENSE.txt
+  -->
 
   <!--
   Determine wich bitness version of the msi to build depending on the
