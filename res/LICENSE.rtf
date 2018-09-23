@@ -1,0 +1,594 @@
+{\rtf1\ansi\deff3\adeflang1025
+{\fonttbl{\f0\froman\fprq2\fcharset0 Times New Roman;}{\f1\froman\fprq2\fcharset2 Symbol;}{\f2\fswiss\fprq2\fcharset0 Arial;}{\f3\froman\fprq2\fcharset0 Liberation Serif{\*\falt Times New Roman};}{\f4\fswiss\fprq2\fcharset0 Liberation Sans{\*\falt Arial};}{\f5\froman\fprq2\fcharset0 Courier New;}{\f6\fnil\fprq2\fcharset0 Microsoft YaHei;}{\f7\fnil\fprq2\fcharset0 Arial;}{\f8\fswiss\fprq0\fcharset128 Arial;}}
+{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;\red192\green192\blue192;}
+{\stylesheet{\s0\snext0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192 Normal;}
+{\s15\sbasedon0\snext16\sb240\sa120\keepn\dbch\af6\dbch\af7\afs28\loch\f4\fs28 Heading;}
+{\s16\sbasedon0\snext16\sl276\slmult1\sb0\sa140 Text Body;}
+{\s17\sbasedon16\snext17\sl276\slmult1\sb0\sa140\dbch\af8 List;}
+{\s18\sbasedon0\snext18\sb120\sa120\noline\i\dbch\af8\afs24\ai\fs24 Caption;}
+{\s19\sbasedon0\snext19\noline\dbch\af8 Index;}
+}{\*\generator LibreOffice/6.1.1.2$Windows_X86_64 LibreOffice_project/5d19a1bfa650b796764388cd8b33a5af1f5baa1b}{\info{\creatim\yr0\mo0\dy0\hr0\min0}{\revtim\yr2018\mo9\dy16\hr21\min57}{\printim\yr0\mo0\dy0\hr0\min0}}{\*\userprops}\deftab720
+\viewscale100
+{\*\pgdsctbl
+{\pgdsc0\pgdscuse451\pgwsxn12240\pghsxn15840\marglsxn1800\margrsxn1800\margtsxn1440\margbsxn1440\pgdscnxt0 Default Style;}}
+\formshade{\*\pgdscno0}\paperh15840\paperw12240\margl1800\margr1800\margt1440\margb1440\sectd\sbknone\sectunlocked1\pgndec\pgwsxn12240\pghsxn15840\marglsxn1800\margrsxn1800\margtsxn1440\margbsxn1440\ftnbj\ftnstart1\ftnrstcont\ftnnar\aenddoc\aftnrstcont\aftnstart1\aftnnrlc
+{\*\ftnsep\chftnsep}\pgndec\pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+Copyright (c) 2015-2016 Yuya Ochiai}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+Copyright (c) 2016-present Mattermost, Inc. All Rights Reserved.}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+                                 }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+Apache License}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+                           }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+Version 2.0, January 2004}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+                        }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+http://www.apache.org/licenses/}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+   }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+   }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+1. Definitions.}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+"License" shall mean the terms and conditions for use, reproduction,}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+and distribution as defined by Sections 1 through 9 of this document.}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+"Licensor" shall mean the copyright owner or entity authorized by}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+the copyright owner that is granting the License.}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+"Legal Entity" shall mean the union of the acting entity and all}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+other entities that control, are controlled by, or are under common}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+control with that entity. For the purposes of this definition,}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+"control" means (i) the power, direct or indirect, to cause the}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+direction or management of such entity, whether by contract or}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+otherwise, or (ii) ownership of fifty percent (50%) or more of the}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+outstanding shares, or (iii) beneficial ownership of such entity.}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+"You" (or "Your") shall mean an individual or Legal Entity}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+exercising permissions granted by this License.}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+"Source" form shall mean the preferred form for making modifications,}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+including but not limited to software source code, documentation}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+source, and configuration files.}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+"Object" form shall mean any form resulting from mechanical}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+transformation or translation of a Source form, including but}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+not limited to compiled object code, generated documentation,}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+and conversions to other media types.}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+"Work" shall mean the work of authorship, whether in Source or}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+Object form, made available under the License, as indicated by a}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+copyright notice that is included in or attached to the work}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+(an example is provided in the Appendix below).}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+"Derivative Works" shall mean any work, whether in Source or Object}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+form, that is based on (or derived from) the Work and for which the}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+editorial revisions, annotations, elaborations, or other modifications}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+represent, as a whole, an original work of authorship. For the purposes}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+of this License, Derivative Works shall not include works that remain}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+separable from, or merely link (or bind by name) to the interfaces of,}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+the Work and Derivative Works thereof.}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+"Contribution" shall mean any work of authorship, including}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+the original version of the Work and any modifications or additions}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+to that Work or Derivative Works thereof, that is intentionally}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+submitted to Licensor for inclusion in the Work by the copyright owner}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+or by an individual or Legal Entity authorized to submit on behalf of}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+the copyright owner. For the purposes of this definition, "submitted"}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+means any form of electronic, verbal, or written communication sent}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+to the Licensor or its representatives, including but not limited to}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+communication on electronic mailing lists, source code control systems,}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+and issue tracking systems that are managed by, or on behalf of, the}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+Licensor for the purpose of discussing and improving the Work, but}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+excluding communication that is conspicuously marked or otherwise}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+designated in writing by the copyright owner as "Not a Contribution."}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+"Contributor" shall mean Licensor and any individual or Legal Entity}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+on behalf of whom a Contribution has been received by Licensor and}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+subsequently incorporated within the Work.}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+   }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+2. Grant of Copyright License. Subject to the terms and conditions of}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+this License, each Contributor hereby grants to You a perpetual,}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+worldwide, non-exclusive, no-charge, royalty-free, irrevocable}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+copyright license to reproduce, prepare Derivative Works of,}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+publicly display, publicly perform, sublicense, and distribute the}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+Work and such Derivative Works in Source or Object form.}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+   }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+3. Grant of Patent License. Subject to the terms and conditions of}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+this License, each Contributor hereby grants to You a perpetual,}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+worldwide, non-exclusive, no-charge, royalty-free, irrevocable}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+(except as stated in this section) patent license to make, have made,}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+use, offer to sell, sell, import, and otherwise transfer the Work,}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+where such license applies only to those patent claims licensable}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+by such Contributor that are necessarily infringed by their}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+Contribution(s) alone or by combination of their Contribution(s)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+with the Work to which such Contribution(s) was submitted. If You}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+institute patent litigation against any entity (including a}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+cross-claim or counterclaim in a lawsuit) alleging that the Work}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+or a Contribution incorporated within the Work constitutes direct}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+or contributory patent infringement, then any patent licenses}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+granted to You under this License for that Work shall terminate}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+as of the date such litigation is filed.}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+   }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+4. Redistribution. You may reproduce and distribute copies of the}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+Work or Derivative Works thereof in any medium, with or without}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+modifications, and in Source or Object form, provided that You}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+meet the following conditions:}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+(a) You must give any other recipients of the Work or}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+          }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+Derivative Works a copy of this License; and}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+(b) You must cause any modified files to carry prominent notices}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+          }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+stating that You changed the files; and}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+(c) You must retain, in the Source form of any Derivative Works}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+          }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+that You distribute, all copyright, patent, trademark, and}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+          }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+attribution notices from the Source form of the Work,}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+          }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+excluding those notices that do not pertain to any part of}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+          }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+the Derivative Works; and}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+(d) If the Work includes a "NOTICE" text file as part of its}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+          }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+distribution, then any Derivative Works that You distribute must}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+          }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+include a readable copy of the attribution notices contained}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+          }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+within such NOTICE file, excluding those notices that do not}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+          }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+pertain to any part of the Derivative Works, in at least one}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+          }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+of the following places: within a NOTICE text file distributed}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+          }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+as part of the Derivative Works; within the Source form or}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+          }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+documentation, if provided along with the Derivative Works; or,}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+          }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+within a display generated by the Derivative Works, if and}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+          }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+wherever such third-party notices normally appear. The contents}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+          }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+of the NOTICE file are for informational purposes only and}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+          }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+do not modify the License. You may add Your own attribution}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+          }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+notices within Derivative Works that You distribute, alongside}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+          }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+or as an addendum to the NOTICE text from the Work, provided}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+          }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+that such additional attribution notices cannot be construed}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+          }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+as modifying the License.}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+You may add Your own copyright statement to Your modifications and}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+may provide additional or different license terms and conditions}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+for use, reproduction, or distribution of Your modifications, or}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+for any such Derivative Works as a whole, provided Your use,}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+reproduction, and distribution of the Work otherwise complies with}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+the conditions stated in this License.}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+   }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+5. Submission of Contributions. Unless You explicitly state otherwise,}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+any Contribution intentionally submitted for inclusion in the Work}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+by You to the Licensor shall be under the terms and conditions of}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+this License, without any additional terms or conditions.}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+Notwithstanding the above, nothing herein shall supersede or modify}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+the terms of any separate license agreement you may have executed}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+with Licensor regarding such Contributions.}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+   }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+6. Trademarks. This License does not grant permission to use the trade}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+names, trademarks, service marks, or product names of the Licensor,}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+except as required for reasonable and customary use in describing the}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+origin of the Work and reproducing the content of the NOTICE file.}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+   }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+7. Disclaimer of Warranty. Unless required by applicable law or}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+agreed to in writing, Licensor provides the Work (and each}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+Contributor provides its Contributions) on an "AS IS" BASIS,}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+implied, including, without limitation, any warranties or conditions}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+PARTICULAR PURPOSE. You are solely responsible for determining the}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+appropriateness of using or redistributing the Work and assume any}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+risks associated with Your exercise of permissions under this License.}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+   }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+8. Limitation of Liability. In no event and under no legal theory,}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+whether in tort (including negligence), contract, or otherwise,}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+unless required by applicable law (such as deliberate and grossly}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+negligent acts) or agreed to in writing, shall any Contributor be}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+liable to You for damages, including any direct, indirect, special,}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+incidental, or consequential damages of any character arising as a}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+result of this License or out of the use or inability to use the}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+Work (including but not limited to damages for loss of goodwill,}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+work stoppage, computer failure or malfunction, or any and all}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+other commercial damages or losses), even if such Contributor}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+has been advised of the possibility of such damages.}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+   }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+9. Accepting Warranty or Additional Liability. While redistributing}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+the Work or Derivative Works thereof, You may choose to offer,}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+and charge a fee for, acceptance of support, warranty, indemnity,}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+or other liability obligations and/or rights consistent with this}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+License. However, in accepting such obligations, You may act only}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+on Your own behalf and on Your sole responsibility, not on behalf}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+of any other Contributor, and only if You agree to indemnify,}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+defend, and hold each Contributor harmless for any liability}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+incurred by, or claims asserted against, such Contributor by reason}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+of your accepting any such warranty or additional liability.}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+   }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+END OF TERMS AND CONDITIONS}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+   }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+APPENDIX: How to apply the Apache License to your work.}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+To apply the Apache License to your work, attach the following}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+boilerplate notice, with the fields enclosed by brackets "\{\}"}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+replaced with your own identifying information. (Don't include}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+the brackets!)  The text should be enclosed in the appropriate}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+comment syntax for the file format. We also recommend that a}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+file or class name and description of purpose be included on the}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+same "printed page" as the copyright notice for easier}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+      }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+identification within third-party archives.}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+   }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+Copyright \{yyyy\} \{name of copyright owner\}}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+   }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+Licensed under the Apache License, Version 2.0 (the "License");}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+   }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+you may not use this file except in compliance with the License.}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+   }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+You may obtain a copy of the License at}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+       }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+http://www.apache.org/licenses/LICENSE-2.0}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+   }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+Unless required by applicable law or agreed to in writing, software}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+   }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+distributed under the License is distributed on an "AS IS" BASIS,}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+   }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+   }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+See the License for the specific language governing permissions and}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192{\afs16\rtlch \ltrch\fs16\lang8192\loch\f5\hich\af5
+   }{\afs16\rtlch \ltrch\loch\fs16\lang8192\loch\f5\hich\af5
+limitations under the License.}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af9\langfe2052\dbch\af7\afs24\alang1081\loch\f3\hich\af3\fs24\lang8192\afs16\rtlch \ltrch\loch\fs16
+
+\par }
